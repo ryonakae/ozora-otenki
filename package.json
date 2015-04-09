@@ -8,6 +8,7 @@
   "dependencies": {
     "express": "^4.12.3",
     "fluent-ffmpeg": "^2.0.0-rc3",
+    "jade": "^1.9.2",
     "sox-audio": "^0.2.0"
   }
 }
