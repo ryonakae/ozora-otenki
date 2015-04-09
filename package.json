@@ -6,6 +6,8 @@
     "start": "node app"
   },
   "dependencies": {
-    "express": "*"
+    "express": "^4.12.3",
+    "fluent-ffmpeg": "^2.0.0-rc3",
+    "sox-audio": "^0.2.0"
   }
 }
