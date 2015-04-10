@@ -51,8 +51,11 @@ http.get(url, function(res){
     });
 
     res.on('end', function(res){
-        ret = JSON.parse(body);
-        console.log(ret);
+        result = JSON.parse(body);
+        console.log(
+          '今日の天気：' + result.forecasts[0].telop + ' / ' +
+          '最高気温：' + result.forecasts[0].temperature.max.celsius + '度'
+        );
     });
 }).on('error', function(e){
     console.log(e.message); //エラー時
