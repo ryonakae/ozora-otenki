@@ -1,1 +1,1 @@
-web: node forecast
+web: node ozora-otenki
