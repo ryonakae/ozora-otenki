@@ -13,10 +13,8 @@ var http = require('http');
 var async = require('async');
 require('date-utils');
 
+var cityId = 1850147;
 var url = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=130010';
-var telop;
-var temp_max;
-var temp_min;
 
 async.waterfall([
   // openweathermap
@@ -27,11 +25,11 @@ async.waterfall([
       mode: 'json'
     });
     weather.daily({
-      id: 1850147,
-      cnt: 3
+      id: cityId,
+      cnt: 2
     }, function(err, result){
-      temp_max = Math.round(result.list[0].temp.max);
-      temp_min = Math.round(result.list[0].temp.min);
+      var temp_max = Math.round(result.list[0].temp.max);
+      var temp_min = Math.round(result.list[0].temp.min);
       callback(null, temp_max, temp_min);
     });
   },
@@ -45,7 +43,7 @@ async.waterfall([
       });
       res.on('end', function(res){
         result = JSON.parse(body);
-        telop = result.forecasts[0].telop;
+        var telop = result.forecasts[0].telop;
         callback(null, temp_max, temp_min, telop);
       });
     });
