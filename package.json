@@ -10,8 +10,10 @@
     "date-utils": "^1.2.16",
     "express": "^4.12.3",
     "fluent-ffmpeg": "^2.0.0-rc3",
+    "fs": "0.0.2",
     "jade": "^1.9.2",
     "openweathermap": "^1.0.0",
-    "sox-audio": "^0.2.0"
+    "sox-audio": "^0.2.0",
+    "ytdl": "^0.3.5"
   }
 }
