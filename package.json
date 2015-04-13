@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./modules/ozora-otenki"
   },
   "dependencies": {
     "async": "^0.9.0",
@@ -16,7 +16,6 @@
     "fluent-ffmpeg": "^2.0.0-rc3",
     "fs": "0.0.2",
     "jade": "~1.9.2",
-    "moment": "^2.10.2",
     "morgan": "~1.5.1",
     "openweathermap": "^1.0.0",
     "path": "^0.11.14",

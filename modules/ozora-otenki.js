@@ -1,7 +1,6 @@
 var app = require('../app');
 var twit = require('twit');
 var cronJob = require('cron').CronJob;
-var moment = require('moment');
 var weather = require('openweathermap');
 var http = require('http');
 var async = require('async');
@@ -10,10 +9,10 @@ require('date-utils');
 
 
 var twitter = new twit({
-  consumer_key: app.get('options').key,
-  consumer_secret: app.get('options').secret,
-  access_token: app.get('options').token,
-  access_token_secret: app.get('options').token_secret
+  consumer_key: app.get('options').twitter_key,
+  consumer_secret: app.get('options').twitter_secret,
+  access_token: app.get('options').twitter_token,
+  access_token_secret: app.get('options').twitter_token_secret
 });
 
 // openweathermap
@@ -120,7 +119,7 @@ function tweet(){
 
         // 文言を画像と一緒にポスト
         twitter.post('statuses/update', tweetContent, function(err, data, response) {
-          console.log('投稿完了！おつか〜');
+          console.log('おつか〜');
         });
       });
     }
