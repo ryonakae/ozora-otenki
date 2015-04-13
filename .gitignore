@@ -32,3 +32,4 @@ source/output.*
 vendor
 .bundle
 Gemfile.lock
+public/components

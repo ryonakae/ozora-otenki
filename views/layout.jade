@@ -1,8 +1,31 @@
 doctype html
-html
+html(lang="ja", prefix="og: http://ogp.me/ns# fb: http://www.facebook.com/2008/fbml")
   head
     meta(charset='utf-8')
     title= title
+    meta(name="description", content="#{description}")
+    meta(name="robots", content="index,follow")
+    meta(name="viewport", content="width=device-width")
+
+    meta(property="og:title", content="")
+    meta(property="og:type", content="website")
+    meta(property="og:url", content="")
+    meta(property="og:description", content="")
+    meta(property="og:site_name", content="")
+    meta(property="og:image", content="")
+    meta(property="og:locale", content="ja_JP")
+    meta(name="twitter:site", value="")
+    meta(name="twitter:creator", value="")
+    meta(name="twitter:card", value="summary_large_image")
+
     link(rel='stylesheet', href='/stylesheets/style.css')
+
+    script(src="/components/jquery/dist/jquery.js")
+    script(src="/components/fabric/dist/fabric.js")
+    script(src="/javascripts/script.js")
+    <!--[if lt IE 9]>
+    script(src="//html5shiv.googlecode.com/svn/trunk/html5.js")
+    <![endif]-->
+
   body
     block content

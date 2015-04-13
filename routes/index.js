@@ -1,9 +1,6 @@
-var express = require('express');
-var router = express.Router();
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
-module.exports = router;
+exports.index = function(request, response){
+  response.render('index', {
+    title: 'Ozora Otenki',
+    description: '今日のお空はどんな空〜❓ 大空お天気の時間です✨'
+  });
+}
