@@ -19,7 +19,8 @@ var cityId = 1850147;
 var url = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=130010';
 
 // var cronTime = '0 30 8 * * *'; //毎日朝8時半
-var cronTime = '30 * * * * *'; //30秒毎
+// var cronTime = '30 * * * * *'; //30秒毎
+var cronTime = '0 */5 * * * *'; //5分毎
 
 new cronJob({
   cronTime: cronTime,
