@@ -1,1 +1,1 @@
-web: node ozora-otenki
+web: npm start
