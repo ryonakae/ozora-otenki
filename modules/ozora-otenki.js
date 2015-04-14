@@ -23,7 +23,7 @@ var url = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=130010';
 // 秒 分 時 日 月 週
 var cronTime = '0 30 8 * * *'; //毎日朝8時半
 // var cronTime = '1-59/2 * * * *'; //1-59分の間で2分ごと
-var cronTime = '*/15 * * * *'; //15分ごと
+// var cronTime = '*/15 * * * *'; //15分ごと
 
 
 new cronJob({
@@ -34,7 +34,7 @@ new cronJob({
   start: true,
   timeZone: 'Asia/Tokyo'
 });
-console.log('稼働中なう');
+console.log('ｱｲ…ｶﾂ…ｱｲ…ｶﾂ…');
 
 
 function tweet(){
@@ -48,7 +48,7 @@ function tweet(){
       });
       weather.daily({
         id: cityId,
-        cnt: 2
+        cnt: 3
       }, function(err, result){
         if(result.list[0] != null){
           if(result.list[0].temp.max != null){
@@ -95,8 +95,10 @@ function tweet(){
 
       // ツイート文言
       var text =
-        '時刻は' + time + '\u2757 ' + '今日のお空はどんな空〜\u2753 大空お天気の時間です\u2728\n' +
-        '今日の都心部は' + telop + '\u2757️ ' + '最高気温は' + temp_max + '度、' + '最低気温は' + temp_min + '度です\u2b50\n' +
+        '時刻は' + time + '\u2757 ' +
+        '今日のお空はどんな空〜\u2753 大空お天気の時間です\u2728' +
+        '今日の都心部は' + telop + '\u2757️ ' +
+        '最高気温は' + temp_max + '度、' + '最低気温は' + temp_min + '度です\u2b50' +
         '通勤・通学気をつけて、行ってらっしゃ〜い\u2728️';
 
       // 添付する画像
