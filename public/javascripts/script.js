@@ -1,28 +1,43 @@
 $(document).ready(function(){
-  // 初期化
+  var video = $('#video');
+
+  // canvas initialize
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
-  var video = document.getElementById("video");
-  var w = canvas.width;
-  var h = canvas.height;
 
-  // 画像オブジェクト作るなど
-  var img = new Image();
-  img.src = 'http://f.cl.ly/items/1d1G2Y1F3D3U1I2C0P2B/37598705.jpeg';
+  $(window).on('load resize', function(){
+    canvas.width = $(window).width();
+    canvas.height = $(window).height();
 
-  // 画像ロード後の処理
-  img.onload = function(){
-    // 文字
-    // フォントサイズとか
-    ctx.font = "Bold 200px 'Avenir Next'";
-    // 文字描画
-    ctx.fillText("OZORA OTENKI", 10, 150);
+    var canvasWidth = canvas.width;
+    var canvasHeight = canvas.height;
 
-    // 画像描画
-    // 描画モード(文字でくり抜く)
-    ctx.globalCompositeOperation = 'source-atop';
-    // ctx.drawImage(img, 0, 0, w, h);
-    ctx.drawImage(video,0,0,w,h);
-    video.play();
-  };
+    // bg
+    ctx.save();
+    ctx.fillStyle = "rgb(235, 235, 235)";
+    ctx.fillRect(0,0,canvasWidth,canvasHeight);
+    ctx.restore();
+
+    // text
+    ctx.save();
+    ctx.translate(canvas.width * 0.5, canvas.height * 0.5);
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.fillStyle = "rgb(0, 0, 0)";
+    ctx.font = "bold 360px 'Avenir Next'";
+    ctx.fillText("OZORA", 0, -150, 9999);
+    ctx.fillText("OTENKI", 0, 160, 9999);
+    ctx.restore();
+
+    // ctx.fillStyle = "rgb(0, 0, 0)";
+    // ctx.font = "Bold 100px 'Avenir Next'";
+    // ctx.fillText("OZORA", 0, 100);
+  });
+
+  $(window).on('load', function(){
+    setTimeout(function(){
+      $('.container').addClass('container--shown');
+    }, 500);
+  });
 });

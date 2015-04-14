@@ -1,14 +1,47 @@
-// @import 'nib'
-// @import '../components/normalize.styl/normalize.styl'
+@import 'nib'
+@import '../components/normalize.styl/normalize.styl'
+
 
 *
   box-sizing border-box
 
 body
   font-family "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif
-  background-color #e6e6e6
+  background-color rgb(235, 235, 235)
   color #fff
-  padding 50px
 
-#canvas
-  background-color #fff
+
+.header
+  display none
+
+
+.container
+  transition-duration 600ms
+  transition-timing-function ease
+  transition-property all
+  opacity 0
+  visibility hidden
+
+.container--shown
+  opacity 1
+  visibility visible
+
+
+.container__video
+  position fixed
+  right 0
+  bottom 0
+  min-width 100%
+  min-height 100%
+  width auto
+  height auto
+  z-index -100
+  background-size cover
+  opacity 0.3
+
+
+.container__canvas
+  position absolute
+  top 0
+  left 0
+  opacity 0.9
