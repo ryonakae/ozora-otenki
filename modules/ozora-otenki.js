@@ -103,7 +103,7 @@ function tweet(){
 
       // 添付する画像
       var imagePath = './source/images/'; // プロジェクトルートからの相対パス
-      var imageCount = 11; // フォルダ内の画像の総数
+      var imageCount = 15; // フォルダ内の画像の総数
       var imageNum = Math.floor(Math.random() * imageCount) + 1;
 
       if(imageNum < 10){
