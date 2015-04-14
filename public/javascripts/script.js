@@ -14,7 +14,7 @@ $(document).ready(function(){
 
     // bg
     ctx.save();
-    ctx.fillStyle = "rgb(235, 235, 235)";
+    ctx.fillStyle = "rgba(235, 235, 235, 0.9)";
     ctx.fillRect(0,0,canvasWidth,canvasHeight);
     ctx.restore();
 
