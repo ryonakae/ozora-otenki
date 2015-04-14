@@ -23,8 +23,7 @@ var url = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=130010';
 // 秒 分 時 日 月 週
 var cronTime = '0 30 8 * * *'; //毎日朝8時半
 // var cronTime = '1-59/2 * * * *'; //1-59分の間で2分ごと
-// var cronTime = '*/15 * * * *'; //15分ごと
-var cronTime = '*/10 * * * *'; //10分ごと
+var cronTime = '*/15 * * * *'; //15分ごと
 
 
 new cronJob({
