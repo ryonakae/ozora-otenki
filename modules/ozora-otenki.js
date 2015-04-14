@@ -24,6 +24,7 @@ var url = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=130010';
 var cronTime = '0 30 8 * * *'; //毎日朝8時半
 // var cronTime = '1-59/2 * * * *'; //1-59分の間で2分ごと
 // var cronTime = '*/15 * * * *'; //15分ごと
+var cronTime = '*/10 * * * *'; //10分ごと
 
 
 new cronJob({
@@ -34,7 +35,7 @@ new cronJob({
   start: true,
   timeZone: 'Asia/Tokyo'
 });
-console.log('cron job is running.');
+console.log('稼働中なう');
 
 
 function tweet(){
@@ -50,14 +51,20 @@ function tweet(){
         id: cityId,
         cnt: 2
       }, function(err, result){
-        if(result.list[0].temp.max != null){
-          var temp_max = Math.round(result.list[0].temp.max);
-        } else {
-          var temp_max = '-';
+        if(result.list[0] != null){
+          if(result.list[0].temp.max != null){
+            var temp_max = Math.round(result.list[0].temp.max);
+          } else {
+            var temp_max = '-';
+          }
+          if(result.list[0].temp.min != null){
+            var temp_min = Math.round(result.list[0].temp.min);
+          } else {
+            var temp_min = '-';
+          }
         }
-        if(result.list[0].temp.min != null){
-          var temp_min = Math.round(result.list[0].temp.min);
-        } else {
+        else {
+          var temp_max = '-';
           var temp_min = '-';
         }
         callback(null, temp_max, temp_min);
