@@ -1,10 +1,10 @@
 $(document).ready(function(){
-  var video = $('#video');
-
-  // canvas initialize
+  // canvas
+  // initialize
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
 
+  // load and resize
   $(window).on('load resize', function(){
     canvas.width = $(window).width();
     canvas.height = $(window).height();
@@ -14,7 +14,7 @@ $(document).ready(function(){
 
     // bg
     ctx.save();
-    ctx.fillStyle = "rgba(235, 235, 235, 0.9)";
+    ctx.fillStyle = "rgba(235, 235, 235, 0.93)";
     ctx.fillRect(0,0,canvasWidth,canvasHeight);
     ctx.restore();
 
@@ -36,6 +36,11 @@ $(document).ready(function(){
   });
 
   $(window).on('load', function(){
+    // video play speed
+    var video = document.getElementById('video');
+    video.playbackRate = 1.5;
+
+    // fadein
     setTimeout(function(){
       $('.container').addClass('container--shown');
     }, 500);
