@@ -12,7 +12,8 @@ var options = {
   twitter_key: process.env.TWITTER_KEY,
   twitter_secret: process.env.TWITTER_SECRET,
   twitter_token: process.env.TWITTER_TOKEN,
-  twitter_token_secret: process.env.TWITTER_TOKEN_SECRET
+  twitter_token_secret: process.env.TWITTER_TOKEN_SECRET,
+  database_url: process.env.DATABASE_URL
 };
 app.set('options', options);
 

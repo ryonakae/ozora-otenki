@@ -1,8 +1,24 @@
+var app = require('../app');
+var pg = require('pg');
+
 exports.index = function(request, response){
-  response.render('index', {
-    title: 'Ozora Otenki',
-    description: '今日のお空はどんな空〜❓ 大空お天気の時間です✨',
-    url: 'http://ozora-otenki.herokuapp.com/',
-    twitter_site: '@ozr_otenki'
+  // データベースに値入れるぞい
+  var connectionString = process.env.DATABASE_URL || 'tcp://localhost:5432/mylocaldb';
+  pg.connect(connectionString, function(error, client){
+    var queryCmd = 'select * from weather_logs order by id desc offset 0 limit 1;';
+    var query = client.query(queryCmd);
+    var rows = [];
+    query.on('row', function(row) {
+      rows.push(row);
+    });
+    query.on('end', function(row,err) {
+      response.render('index', {
+        title: 'Ozora Otenki',
+        description: '今日のお空はどんな空〜❓ 大空お天気の時間です✨',
+        url: 'http://ozora-otenki.herokuapp.com/',
+        twitter_site: '@ozr_otenki',
+        weather: rows
+      });
+    });
   });
 }

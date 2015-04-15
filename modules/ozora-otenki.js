@@ -5,6 +5,7 @@ var weather = require('openweathermap');
 var http = require('http');
 var async = require('async');
 var fs = require('fs');
+var pg = require('pg');
 require('date-utils');
 
 
@@ -128,6 +129,14 @@ function tweet(){
         // 文言を画像と一緒にポスト
         twitter.post('statuses/update', tweetContent, function(err, data, response) {
           console.log('おつか〜');
+
+          // データベースに値入れるぞい
+          var connectionString = process.env.DATABASE_URL || 'tcp://localhost:5432/mylocaldb';
+          pg.connect(connectionString, function(error, client){
+            time = d.toFormat("YYYY-MM-DD");
+            var queryCmd = 'INSERT INTO weather_logs (date,telop,temp_max,temp_min) values ('+ "'" + time + "'" + ',' + "'" + telop + "'" + ',' + temp_max + ',' + temp_min + ');';
+            var query = client.query(queryCmd);
+          });
         });
       });
     }
