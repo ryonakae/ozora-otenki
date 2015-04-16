@@ -6,9 +6,15 @@ block content
     p.header__description= description
 
   section.container
-    video.container__video#video(autoplay, loop, audio='muted', poster="/movies/video_poster.gif")
-      source(src='/movies/video.mp4', type="video/mp4")
+    a.container__link(href='https://twitter.com/ozr_otenki', target='_blank')
+      - if (ua === 'iOS' || ua === 'Android' || ua === 'iPad')
+        .container__gif(style='background-image:url("/images/video_02.gif");')
+      - else
+        video.container__video#video(autoplay, loop, audio='muted')
+          source(src='/movies/video.mp4', type="video/mp4")
 
-    canvas.container__canvas#canvas(width='1280', height='720')
+      canvas.container__canvas#canvas(width='2560', height='1440')
 
-    //- .hoge= weather[0].id
+      script.
+        var weather = JSON.parse(unescape("!{escape(JSON.stringify(weather))}"));
+      script(src='/javascripts/canvas.js')

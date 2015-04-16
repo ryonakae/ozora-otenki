@@ -9,73 +9,23 @@
         "name": "Tokyo",
         "population": 8336599
     },
-    "cnt": 7,
+    "cnt": 3,
     "cod": "200",
     "list": [
         {
-            "clouds": 100,
-            "deg": 322,
-            "dt": 1428976800,
-            "humidity": 100,
-            "pressure": 1020.43,
-            "rain": 11.34,
-            "speed": 1.91,
-            "temp": {
-                "day": 287.06,
-                "eve": 286.9,
-                "max": 287.2,
-                "min": 286.05,
-                "morn": 286.05,
-                "night": 286.35
-            },
-            "weather": [
-                {
-                    "description": "moderate rain",
-                    "icon": "10d",
-                    "id": 501,
-                    "main": "Rain"
-                }
-            ]
-        },
-        {
-            "clouds": 92,
-            "deg": 198,
-            "dt": 1429063200,
-            "humidity": 100,
-            "pressure": 1012.47,
-            "rain": 1.7,
-            "speed": 9.16,
-            "temp": {
-                "day": 289.3,
-                "eve": 287.23,
-                "max": 290.14,
-                "min": 282.12,
-                "morn": 285.56,
-                "night": 282.12
-            },
-            "weather": [
-                {
-                    "description": "light rain",
-                    "icon": "10d",
-                    "id": 500,
-                    "main": "Rain"
-                }
-            ]
-        },
-        {
-            "clouds": 24,
-            "deg": 42,
+            "clouds": 20,
+            "deg": 184,
             "dt": 1429149600,
-            "humidity": 100,
-            "pressure": 1021.57,
-            "speed": 1.97,
+            "humidity": 75,
+            "pressure": 1022.07,
+            "speed": 5.37,
             "temp": {
-                "day": 291.39,
-                "eve": 290.01,
-                "max": 293.01,
-                "min": 278.97,
-                "morn": 278.97,
-                "night": 283.43
+                "day": 292.97,
+                "eve": 290.09,
+                "max": 293.41,
+                "min": 285.27,
+                "morn": 292.97,
+                "night": 285.27
             },
             "weather": [
                 {
@@ -87,69 +37,20 @@
             ]
         },
         {
-            "clouds": 37,
-            "deg": 201,
+            "clouds": 8,
+            "deg": 193,
             "dt": 1429236000,
-            "humidity": 0,
-            "pressure": 1004.42,
-            "rain": 1.62,
-            "speed": 6.7,
+            "humidity": 85,
+            "pressure": 1015.08,
+            "rain": 4.97,
+            "speed": 6.91,
             "temp": {
-                "day": 291.92,
-                "eve": 293.84,
-                "max": 293.84,
-                "min": 284.89,
-                "morn": 284.89,
-                "night": 286.07
-            },
-            "weather": [
-                {
-                    "description": "light rain",
-                    "icon": "10d",
-                    "id": 500,
-                    "main": "Rain"
-                }
-            ]
-        },
-        {
-            "clouds": 1,
-            "deg": 198,
-            "dt": 1429322400,
-            "humidity": 0,
-            "pressure": 1009.63,
-            "speed": 0.53,
-            "temp": {
-                "day": 288.62,
-                "eve": 290.96,
-                "max": 290.96,
-                "min": 281.91,
-                "morn": 281.91,
-                "night": 283.66
-            },
-            "weather": [
-                {
-                    "description": "light rain",
-                    "icon": "10d",
-                    "id": 500,
-                    "main": "Rain"
-                }
-            ]
-        },
-        {
-            "clouds": 62,
-            "deg": 77,
-            "dt": 1429408800,
-            "humidity": 0,
-            "pressure": 1012.93,
-            "rain": 5.41,
-            "speed": 0.74,
-            "temp": {
-                "day": 288.21,
-                "eve": 288.48,
-                "max": 290.49,
-                "min": 280.57,
-                "morn": 280.57,
-                "night": 290.49
+                "day": 293.91,
+                "eve": 285.77,
+                "max": 293.91,
+                "min": 280.48,
+                "morn": 283.99,
+                "night": 280.48
             },
             "weather": [
                 {
@@ -161,30 +62,29 @@
             ]
         },
         {
-            "clouds": 7,
-            "deg": 327,
-            "dt": 1429495200,
-            "humidity": 0,
-            "pressure": 1000.08,
-            "rain": 1.46,
-            "speed": 3.19,
+            "clouds": 8,
+            "deg": 288,
+            "dt": 1429322400,
+            "humidity": 70,
+            "pressure": 1024.46,
+            "speed": 6.28,
             "temp": {
-                "day": 293.53,
-                "eve": 291.84,
-                "max": 293.53,
-                "min": 286.43,
-                "morn": 292.29,
-                "night": 286.43
+                "day": 291.96,
+                "eve": 287.62,
+                "max": 291.96,
+                "min": 279.4,
+                "morn": 279.4,
+                "night": 281.69
             },
             "weather": [
                 {
-                    "description": "light rain",
-                    "icon": "10d",
-                    "id": 500,
-                    "main": "Rain"
+                    "description": "sky is clear",
+                    "icon": "02d",
+                    "id": 800,
+                    "main": "Clear"
                 }
             ]
         }
     ],
-    "message": 0.007
+    "message": 0.0057
 }

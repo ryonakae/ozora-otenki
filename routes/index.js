@@ -1,7 +1,13 @@
 var app = require('../app');
 var pg = require('pg');
+var uaParser = require('ua-parser-js');
 
 exports.index = function(request, response){
+  // UA
+  var parser = new uaParser();
+  var ua = request.headers['user-agent'];
+  var ua = parser.setUA(ua).getResult();
+
   // データベースに値入れるぞい
   var connectionString = process.env.DATABASE_URL || 'tcp://localhost:5432/mylocaldb';
   pg.connect(connectionString, function(error, client){
@@ -17,7 +23,8 @@ exports.index = function(request, response){
         description: '今日のお空はどんな空〜❓ 大空お天気の時間です✨',
         url: 'http://ozora-otenki.herokuapp.com/',
         twitter_site: '@ozr_otenki',
-        weather: rows
+        weather: rows,
+        ua: ua.os.name
       });
     });
   });
