@@ -35,7 +35,6 @@ new cronJob({
   start: true,
   timeZone: 'Asia/Tokyo'
 });
-console.log('ｱｲ…ｶﾂ…ｱｲ…ｶﾂ…');
 
 
 function tweet(){
