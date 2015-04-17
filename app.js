@@ -5,7 +5,6 @@ var routes = require('./routes/index');
 var coffeeMiddleware = require('coffee-middleware');
 var stylus = require('stylus');
 var nib = require('nib');
-var favicon = require('serve-favicon');
 
 // ozora-otenki options
 var options = {
@@ -33,7 +32,6 @@ app.use(coffeeMiddleware({
   src: path.join(__dirname, 'assets'),
   compress: true
 }));
-app.use(favicon(path.join(__dirname, 'assets/images/favicon.ico')));
 app.use(express.static(path.join(__dirname, 'assets')));
 
 app.get('/', routes.index);

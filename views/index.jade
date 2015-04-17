@@ -6,9 +6,9 @@ block content
     p.header__description= description
 
   section.container
-    a.container__link(href='https://twitter.com/ozr_otenki', target='_blank')
+    a.container__link(href='https://twitter.com/ozr_otenki', target='_blank', onclick="ga('send', 'event', 'click_twitter', 'click', 'https://twitter.com/ozr_otenki');")
       - if (ua === 'iOS' || ua === 'Android' || ua === 'iPad')
-        script(src="//ozora-otenki.tumblr.com/api/read/json?num=10&amp;type=photo")
+        script(src="//ozora-otenki.tumblr.com/api/read/json?num=8&amp;type=photo")
         script(src="/javascripts/tumblr_background_imager.js")
         .container__gif#gif
       - else
@@ -17,6 +17,6 @@ block content
 
       canvas.container__canvas#canvas(width='2560', height='1440')
 
-      script.
-        var weather = JSON.parse(unescape("!{escape(JSON.stringify(weather))}"));
-      script(src='/javascripts/canvas.js')
+  script.
+    var weather = JSON.parse(unescape("!{escape(JSON.stringify(weather))}"));
+  script(src='/javascripts/canvas.js')
