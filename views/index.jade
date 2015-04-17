@@ -8,10 +8,12 @@ block content
   section.container
     a.container__link(href='https://twitter.com/ozr_otenki', target='_blank')
       - if (ua === 'iOS' || ua === 'Android' || ua === 'iPad')
-        .container__gif(style='background-image:url("/images/video_02.gif");')
+        script(src="//ozora-otenki.tumblr.com/api/read/json?num=10&amp;type=photo")
+        script(src="/javascripts/tumblr_background_imager.js")
+        .container__gif#gif
       - else
         video.container__video#video(autoplay, loop, audio='muted')
-          source(src='/movies/video.mp4', type="video/mp4")
+          source(src='https://s3-ap-northeast-1.amazonaws.com/ozora-otenki/videos/akari-ozora.mp4', type="video/mp4")
 
       canvas.container__canvas#canvas(width='2560', height='1440')
 

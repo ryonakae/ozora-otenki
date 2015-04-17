@@ -21,7 +21,7 @@ app.set('port', (process.env.PORT || 3000));
 app.set('view engine', 'jade');
 app.set('views', path.join(__dirname, 'views'));
 app.use(stylus.middleware({
-  src: path.join(__dirname, 'public'),
+  src: path.join(__dirname, 'assets'),
   compile: function(str, path){
     return stylus(str)
       .set('filename', path)
@@ -30,11 +30,11 @@ app.use(stylus.middleware({
   }
 }));
 app.use(coffeeMiddleware({
-  src: path.join(__dirname, 'public'),
+  src: path.join(__dirname, 'assets'),
   compress: true
 }));
-app.use(favicon(path.join(__dirname, 'public/images/favicon.ico')));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname, 'assets/images/favicon.ico')));
+app.use(express.static(path.join(__dirname, 'assets')));
 
 app.get('/', routes.index);
 
