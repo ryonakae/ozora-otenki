@@ -16,10 +16,6 @@ var twitter = new twit({
   access_token_secret: app.get('options').twitter_token_secret
 });
 
-// openweathermap
-var cityId = 1850147;
-// livedoor weather hacks
-var url = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=130010';
 
 // 秒 分 時 日 月 週
 var cronTime = '0 30 8 * * *'; //毎日朝8時半
@@ -39,6 +35,7 @@ new cronJob({
 
 function tweet(){
   async.waterfall([
+    var cityId = 1850147;
     // openweathermap
     function(callback){
       weather.defaults({
@@ -78,6 +75,7 @@ function tweet(){
     },
     // livedoor weather hacks
     function(city, country, telop_en, temp_max, temp_min, callback){
+      var url = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=130010';
       http.get(url, function(res){
         var body = '';
         res.setEncoding('utf8');
@@ -134,14 +132,13 @@ function tweet(){
 
         // 文言を画像と一緒にポスト
         twitter.post('statuses/update', tweetContent, function(err, data, response) {
-          console.log('おつか〜');
-
-          // データベースに値入れるぞい
+          // ツイートし終わったらデータベースに値入れるぞい
           var connectionString = process.env.DATABASE_URL || 'tcp://localhost:5432/mylocaldb';
           pg.connect(connectionString, function(error, client){
             time = d.toFormat("YYYY-MM-DD");
             var queryCmd = 'INSERT INTO weather_logs (date,telop,temp_max,temp_min,city,country,telop_en) values ('+ "'"+time+"'" +','+ "'"+telop+"'" +','+ temp_max +','+ temp_min +','+ "'"+city+"'" +','+ "'"+country+"'" +','+ "'"+telop_en+"'" +');';
             var query = client.query(queryCmd);
+            console.log('おつか〜');
           });
         });
       });
