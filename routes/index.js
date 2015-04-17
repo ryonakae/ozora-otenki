@@ -22,6 +22,7 @@ exports.index = function(request, response){
         title: 'Ozora Otenki',
         description: '今日のお空はどんな空〜❓ 大空お天気の時間です✨',
         url: 'http://ozora-otenki.herokuapp.com/',
+        image: 'https://s3-ap-northeast-1.amazonaws.com/ozora-otenki/images/akari-ozora.jpg',
         twitter_site: '@ozr_otenki',
         weather: rows,
         ua: ua.os.name
