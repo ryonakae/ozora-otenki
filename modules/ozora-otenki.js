@@ -135,11 +135,13 @@ function tweet(){
         twitter.post('statuses/update', tweetContent, function(err, data, response) {
           // ツイートし終わったらデータベースに値入れるぞい
           var connectionString = process.env.DATABASE_URL || 'tcp://localhost:5432/mylocaldb';
-          pg.connect(connectionString, function(error, client){
+          pg.connect(connectionString, function(error, client, done){
             time = d.toFormat("YYYY-MM-DD");
             var queryCmd = 'INSERT INTO weather_logs (date,telop,temp_max,temp_min,city,country,telop_en) values ('+ "'"+time+"'" +','+ "'"+telop+"'" +','+ temp_max +','+ temp_min +','+ "'"+city+"'" +','+ "'"+country+"'" +','+ "'"+telop_en+"'" +');';
-            var query = client.query(queryCmd);
-            console.log('おつか〜');
+            var query = client.query(queryCmd, function(error, result){
+              done();
+              console.log('おつか〜\u2600');
+            });
           });
         });
       });

@@ -8,9 +8,9 @@ exports.index = function(request, response){
   var ua = request.headers['user-agent'];
   var ua = parser.setUA(ua).getResult();
 
-  // データベースに値入れるぞい
+  // データベースの値取り出すぞい
   var connectionString = process.env.DATABASE_URL || 'tcp://localhost:5432/mylocaldb';
-  pg.connect(connectionString, function(error, client){
+  pg.connect(connectionString, function(error, client, done){
     var queryCmd = 'select * from weather_logs order by id desc offset 0 limit 1;';
     var query = client.query(queryCmd);
     var rows = [];
@@ -27,6 +27,8 @@ exports.index = function(request, response){
         weather: rows,
         ua: ua.os.name
       });
+      done();
+      console.log('おつか〜\u2600');
     });
   });
 }
