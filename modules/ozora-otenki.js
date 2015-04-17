@@ -34,8 +34,10 @@ new cronJob({
 
 
 function tweet(){
+  var cityId = 1850147;
+  var url = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=130010';
+
   async.waterfall([
-    var cityId = 1850147;
     // openweathermap
     function(callback){
       weather.defaults({
@@ -75,7 +77,6 @@ function tweet(){
     },
     // livedoor weather hacks
     function(city, country, telop_en, temp_max, temp_min, callback){
-      var url = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=130010';
       http.get(url, function(res){
         var body = '';
         res.setEncoding('utf8');
