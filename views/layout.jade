@@ -5,8 +5,7 @@ html(lang="ja", prefix="og: http://ogp.me/ns# fb: http://www.facebook.com/2008/f
     title= title
     meta(name="description", content="#{description}")
     meta(name="robots", content="index,follow")
-    //- meta(name="viewport", content="width=device-width")
-    meta(name="viewport", content="width=1280")
+    meta(name="viewport", content="width=device-width")
 
     meta(property="og:title", content="#{title}")
     meta(property="og:type", content="website")
@@ -20,10 +19,7 @@ html(lang="ja", prefix="og: http://ogp.me/ns# fb: http://www.facebook.com/2008/f
 
     link(rel='stylesheet', href='/stylesheets/style.css')
 
-    script(src="/components/jquery/dist/jquery.js")
-    //- - if (ua === 'iOS' || ua === 'Android' || ua === 'iPad')
-    //-   script(src="//ozora-otenki.tumblr.com/api/read/json?num=10&amp;type=photo")
-    //-   script(src="/javascripts/tumblr_background_imager.js")
+    script(src="/components/jquery/dist/jquery.min.js")
     script(src="/javascripts/script.js")
     <!--[if lt IE 9]>
     script(src="//html5shiv.googlecode.com/svn/trunk/html5.js")

@@ -29,8 +29,6 @@ $(document).ready(function(){
   function drawCanvas(){
     // canvas initialize
     var canvas = document.getElementById('canvas');
-    // canvas.width = $(window).width();
-    // canvas.height = $(window).height();
     var ctx = canvas.getContext('2d');
     var canvasWidth = canvas.getAttribute('width');
     var canvasHeight = canvas.getAttribute('height');
