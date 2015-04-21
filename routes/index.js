@@ -31,4 +31,14 @@ exports.index = function(request, response){
       console.log('おつか〜\u2600');
     });
   });
-}
+};
+
+exports.login = function(request, response){
+  response.render('login', { title: 'Express' });
+};
+
+exports.timeline = function(request, response){
+  var userId = request.user.username;
+  response.render('timeline', { userId: userId });
+  console.log(userId);
+};
