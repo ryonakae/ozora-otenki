@@ -28,7 +28,7 @@ exports.index = function(request, response){
         ua: ua.os.name
       });
       done();
-      console.log('おつか〜\u2600');
+      console.log('ﾌﾌｯﾋ\u2728');
     });
   });
 }
