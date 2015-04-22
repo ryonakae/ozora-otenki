@@ -49,7 +49,7 @@ var TWITTER_CONSUMER_SECRET = 'cjdC2dzfXiCdCW4o2G1498y5oirL9vssHoKGBbST5mtxIHmrg
 
 // passport
 passport.serializeUser(function(user, done){
-  done(null, user);
+  done(null, user.id);
 });
 passport.deserializeUser(function(obj, done){
   done(null, obj);
