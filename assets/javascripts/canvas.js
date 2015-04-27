@@ -61,7 +61,7 @@ $(document).ready(function(){
     var mm = toDoubleDigits(date.getMonth() + 1);
     var dd = toDoubleDigits(date.getDate());
     var hh = toDoubleDigits(date.getHours());
-    var mi = toDoubleDigits(date.getMinutes()+1);
+    var mi = toDoubleDigits(date.getMinutes());
     var ss = toDoubleDigits(date.getSeconds());
     // var ms = date.getMilliseconds();
     // ms = ("00"+ms).slice(-3,-1);
