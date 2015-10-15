@@ -8,33 +8,82 @@ var fs = require('fs');
 var pg = require('pg');
 require('date-utils');
 
+var superagent = require("superagent");
+var superagentJsonp = require("superagent-jsonpx");
+var $ = require('jquery');
 
-var twitter = new twit({
-  consumer_key: app.get('options').twitter_key,
-  consumer_secret: app.get('options').twitter_secret,
-  access_token: app.get('options').twitter_token,
-  access_token_secret: app.get('options').twitter_token_secret
-});
+
+// var twitter = new twit({
+//   consumer_key: app.get('options').twitter_key,
+//   consumer_secret: app.get('options').twitter_secret,
+//   access_token: app.get('options').twitter_token,
+//   access_token_secret: app.get('options').twitter_token_secret
+// });
 
 
 // 秒 分 時 日 月 週
 var cronTime = '0 30 8 * * *'; //毎日朝8時半
 // var cronTime = '1-59/2 * * * *'; //1-59分の間で2分ごと
 // var cronTime = '*/15 * * * *'; //15分ごと
+// var cronTime = '*/10 * * * * *'; //10秒ごと
 
 
-new cronJob({
-  cronTime: cronTime,
-  onTick: function() {
-    tweet();
-  },
-  start: true,
-  timeZone: 'Asia/Tokyo'
-});
+// new cronJob({
+//   cronTime: cronTime,
+//   onTick: function() {
+//     tweet();
+//   },
+//   start: true,
+//   timeZone: 'Asia/Tokyo'
+// });
+
+
+function tweet2(){
+  // common variables
+  // var city, country, telop_en, temp_max, temp_min, telop;
+
+  // openweathermap parameter
+  var openWeatherMapUrl = 'http://api.openweathermap.org/data/2.5/forecast/daily';
+  var openWeatherMapId = 1850147;
+
+  // livedoor weather hacks api url
+  var url = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=130010';
+
+  async.waterfall([
+    // openweathermap
+    function(callback){
+      superagent
+        .get(openWeatherMapUrl)
+        .query({
+          id: openWeatherMapId,
+          cnt: 3,
+          APPID: app.get('options').opanweathermap_api_ey
+        })
+        .use(superagentJsonp({
+          timeout: 10000
+        }))
+        .end(function(err, res){
+          city = res.body.city.name
+          callback(null, city);
+        });
+    },
+
+    function(city, callback){
+      console.log(city);
+    }
+  ]);
+}
+tweet2();
+
+
+
 
 
 function tweet(){
+  // openweathermap city id
   var cityId = 1850147;
+
+  // livedoor weather hacks api url
   var url = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=130010';
 
   async.waterfall([
@@ -145,30 +194,6 @@ function tweet(){
           });
         });
       });
-
-
-      // for debug
-      // var connectionString = process.env.DATABASE_URL || 'tcp://localhost:5432/mylocaldb';
-      // pg.connect(connectionString, function(error, client){
-      //   time = d.toFormat("YYYY-MM-DD");
-      //   var queryCmd = 'INSERT INTO weather_logs (date,telop,temp_max,temp_min,city,country,telop_en) values ('+ "'"+time+"'" +','+ "'"+telop+"'" +','+ temp_max +','+ temp_min +','+ "'"+city+"'" +','+ "'"+country+"'" +','+ "'"+telop_en+"'" +');';
-      //   var query = client.query(queryCmd);
-      //   var queryCmd = 'select * from weather_logs order by id desc offset 0 limit 1;';
-      //   var query = client.query(queryCmd);
-      //   var rows = [];
-      //   // row取得したら
-      //   query.on('row', function(row) {
-      //     rows.push(row);
-      //   });
-      //   // 処理終了時
-      //   query.on('end', function(row,err) {
-      //     console.log(rows);
-      //   });
-      // });
     }
   ]);
 };
-
-
-// for debug
-// tweet();
