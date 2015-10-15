@@ -14,7 +14,8 @@ Create `local_run.sh`.
 
     $ touch local_run.sh
 
-Then, edit `local_run.sh`.
+Then, edit `local_run.sh`.  
+※ TwitterのAPI Keyは開発用アカウントのもの
 
     #!/bin/sh
 
@@ -26,10 +27,15 @@ Then, edit `local_run.sh`.
 
     npm start
 
-Add environment variable to Heroku.
+Start development.
 
-    $ heroku config:add TWITTER_KEY=xxxxx
-    $ heroku config:add TWITTER_SECRET=xxxxx
-    $ heroku config:add TWITTER_TOKEN=xxxxx
-    $ heroku config:add TWITTER_TOKEN_SECRET=xxxxx
-    $ heroku config:add OPENWEATHERMAP_API_KEY=xxxxx
+    $ sh local_run.sh
+
+Add environment variable to Heroku.  
+※ TwitterのAPI Keyは本番用アカウントのもの
+
+    $ heroku config:add TWITTER_KEY=xxxxx --app ozora-otenki
+    $ heroku config:add TWITTER_SECRET=xxxxx --app ozora-otenki
+    $ heroku config:add TWITTER_TOKEN=xxxxx --app ozora-otenki
+    $ heroku config:add TWITTER_TOKEN_SECRET=xxxxx --app ozora-otenki
+    $ heroku config:add OPENWEATHERMAP_API_KEY=xxxxx --app ozora-otenki
