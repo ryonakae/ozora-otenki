@@ -33,3 +33,5 @@ vendor
 .bundle
 Gemfile.lock
 assets/components
+
+local_run.sh

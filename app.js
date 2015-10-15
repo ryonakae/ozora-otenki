@@ -12,7 +12,8 @@ var options = {
   twitter_secret: process.env.TWITTER_SECRET,
   twitter_token: process.env.TWITTER_TOKEN,
   twitter_token_secret: process.env.TWITTER_TOKEN_SECRET,
-  database_url: process.env.DATABASE_URL
+  database_url: process.env.DATABASE_URL,
+  opanweathermap_api_ey: process.env.OPENWEATHERMAP_API_KEY
 };
 app.set('options', options);
 
